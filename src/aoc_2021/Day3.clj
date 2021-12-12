@@ -1,7 +1,7 @@
 (require '[clojure.string :as str])
 (require '[clojure.math.numeric-tower :as math :refer [expt]])
 
-(def txt "/Users/amrit/code/clojure/AoC_2021/Day3_input.txt")
+(def txt "/Users/amrit/code/clojure/aoc-2021/src/aoc_2021/Day3_input.txt")
 
 ; You can just do a bitwise sum and see if it exceeds half the length of the list - there can only be two values, so if the number of 1s exceeds half the length then it must be more than the number of zeroes
 

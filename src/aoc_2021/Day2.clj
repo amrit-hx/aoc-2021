@@ -1,6 +1,6 @@
 (require '[clojure.string :as str])
 
-(def txt "/Users/amrit/code/clojure/AoC_2021/Day2_input.txt")
+(def txt "/Users/amrit/code/clojure/aoc-2021/src/aoc_2021/Day2_input.txt")
 
 (defn parse-to-instruction [s]
   (let [[direction distance] (str/split s #" ")]
