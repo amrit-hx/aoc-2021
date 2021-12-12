@@ -26,3 +26,21 @@
    (map #(> % threshold))))
 
 ; Convert to decimal
+(def gamma
+  (->>
+   freqs
+   (map #(if % 1 0))))
+
+(def epsilon
+  (map #(- 1 %) gamma))
+
+(defn decimalise [lst]
+  (->>
+   lst
+   (apply str)
+   (str "2r")
+   (read-string)))
+
+(*
+ (decimalise gamma)
+ (decimalise epsilon))
