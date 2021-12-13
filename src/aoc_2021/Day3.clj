@@ -37,8 +37,7 @@
 (defn decimalise [lst]
   (->>
    lst
-   (apply str)
-   (str "2r")
+   (apply str "2r")
    (read-string)))
 
 (*
