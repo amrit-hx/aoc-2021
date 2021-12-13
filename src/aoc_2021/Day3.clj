@@ -1,5 +1,4 @@
 (require '[clojure.string :as str])
-(require '[clojure.math.numeric-tower :as math :refer [expt]])
 
 (def txt "/Users/amrit/code/clojure/aoc-2021/src/aoc_2021/Day3_input.txt")
 
@@ -20,12 +19,13 @@
 (def freqs
   (->>
    input
+   ; transpose the lists so you can sum them
    (apply map vector)
-   (map #(reduce + 0 %))
+   (map #(reduce + %))
    ; And check if above the threshold
    (map #(> % threshold))))
 
-; Convert to decimal
+; Convert to stream of 1s and 0s
 (def gamma
   (->>
    freqs
@@ -44,3 +44,8 @@
 (*
  (decimalise gamma)
  (decimalise epsilon))
+
+; Part 2
+; You need to filter the list by matching the nth bit of each member to the nth bit of gamma
+(defn sieve [mask lst]
+  )
