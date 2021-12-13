@@ -44,8 +44,3 @@
 (*
  (decimalise gamma)
  (decimalise epsilon))
-
-; Part 2
-; You need to filter the list by matching the nth bit of each member to the nth bit of gamma
-(defn sieve [mask lst]
-  )
