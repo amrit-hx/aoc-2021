@@ -2,9 +2,7 @@
 
 (def txt "/Users/amrit/code/clojure/aoc-2021/src/aoc_2021/Day3_input.txt")
 
-; You can just do a bitwise sum and see if it exceeds half the length of the list - there can only be two values, so if the number of 1s exceeds half the length then it must be more than the number of zeroes
-
-; So - convert the input into a vector of integer vectors representing the bits
+; Convert the input into a vector of integer vectors representing the bits
 (def input
   (->>
    txt
@@ -15,15 +13,8 @@
 
 (def threshold (/ (count input) 2))
 
-; Do a "bitwise" sum
-(def freqs
-  (->>
-   input
-   ; transpose the lists so you can sum them
-   (apply map vector)
-   (map #(reduce + %))))
 
-
+; You can just do a bitwise sum and see if it exceeds half the length of the list - there can only be two values, so if the number of 1s exceeds half the length then it must be more than the number of zeroes
 
 (defn popular-at-idx
   [lst idx]
@@ -33,13 +24,16 @@
          lst
          (map #(nth % idx))
          (reduce +))]
+    ; Note >= so ties become 1s
     (if (>= freqs threshold) 1 0)))
 
 
-(defn gamma [lst]
+(defn getgamma [lst]
   (if (= (count (first lst)) 0)
     nil
     (cons (popular-at-idx lst 0) (gamma (map rest lst)))))
+
+(def gamma (getgamma input))
 
 (def epsilon
   (map #(- 1 %) gamma))
