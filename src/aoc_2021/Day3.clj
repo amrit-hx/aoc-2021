@@ -31,7 +31,7 @@
 (defn getgamma [lst]
   (if (= (count (first lst)) 0)
     nil
-    (cons (popular-at-idx lst 0) (gamma (map rest lst)))))
+    (cons (popular-at-idx lst 0) (getgamma (map rest lst)))))
 
 (def gamma (getgamma input))
 
